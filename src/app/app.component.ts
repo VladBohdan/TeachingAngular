@@ -21,4 +21,11 @@ export class AppComponent {
     {title: 'Javascript', text: 'The best language in the world'},
   ]
 
+  addPost() {
+    this.posts.unshift({
+      title: 'Angular 8',
+      text: 'Vladilen Angular 8 course'
+    })
+  }
+
 }
