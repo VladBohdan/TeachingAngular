@@ -1,25 +1,19 @@
 import {Component} from '@angular/core'
-
-export interface Post {
-  title: string
-  text: string
-}
+import {AppCounterService} from './services/app-counter.service'
+import {LocalCounterService} from './services/local-counter.service'
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  providers: [LocalCounterService]
 })
 export class AppComponent {
 
-  search = ''
-  searchField = 'title'
-
-  posts: Post[] = [
-    {title: 'Beer', text: 'Самое лучшее пиво в мире'},
-    {title: 'Bread', text: 'The best bread in the world'},
-    {title: 'Javascript', text: 'The best language in the world'},
-  ]
+  constructor(
+    private appCounterService: AppCounterService,
+    private localCounterService: LocalCounterService
+  ) {}
 
   addPost() {
     this.posts.unshift({
@@ -29,3 +23,4 @@ export class AppComponent {
   }
 
 }
+
