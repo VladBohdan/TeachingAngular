@@ -15,5 +15,12 @@ export class AppComponent {
     private localCounterService: LocalCounterService
   ) {}
 
+  addPost() {
+    this.posts.unshift({
+      title: 'Angular 8',
+      text: 'Vladilen Angular 8 course'
+    })
+  }
+
 }
 
